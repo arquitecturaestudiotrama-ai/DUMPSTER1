@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pista de Skate 360° · María Sol Pomphile</title>
+<meta name="description" content="Propuesta de iluminación para la pista de skate: recorrido 360° orbitable. Arq. María Sol Pomphile · Women Lighting. Visualización: Trama Estudio.">
+<meta name="theme-color" content="#070b0b">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Pista de Skate 360° · María Sol Pomphile">
+<meta property="og:description" content="Propuesta de iluminación para la pista de skate: recorrido 360° orbitable. Arq. María Sol Pomphile · Women Lighting. Visualización: Trama Estudio.">
+<!-- Cuando tengas la URL de Vercel, reemplazá TU-SITIO.vercel.app en las dos líneas siguientes -->
+<meta property="og:image" content="https://TU-SITIO.vercel.app/assets/og.jpg">
+<meta property="og:url" content="https://TU-SITIO.vercel.app/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23070b0b'/%3E%3Cpath d='M6 22 L16 8 L26 22' fill='none' stroke='%237fe3d6' stroke-width='2'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/pannellum.css">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&display=swap">
+<style>
+/* Layout: membrete (logo de María Sol con la misma lógica que el de Trama) · 360 a sangre en celular · referente Tron · crédito Trama */
+:root{
+  color-scheme: dark;
+  --bg:#070b0b;
+  --surface:#0d1414;
+  --line:#1d2b2a;
+  --fg:#e7eeed;
+  --muted:#93a6a3;
+  --glow:#7fe3d6;
+  --glow-soft:rgba(127,227,214,.16);
+  --gutter:clamp(16px,4vw,48px);
+  --f:"Montserrat","Helvetica Neue",Arial,sans-serif;
+}
+html,body{background:var(--bg);color:var(--fg)}
+body{font-family:var(--f);font-weight:300;font-size:15px;line-height:1.65;padding-inline:var(--gutter);padding-block:0 32px;-webkit-text-size-adjust:100%;overflow-x:hidden}
+.wrap{max-width:1180px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(28px,5vw,56px)}
+.label{font-size:10px;font-weight:400;letter-spacing:.34em;text-transform:uppercase;color:var(--glow)}
+
+/* ---------- Membrete ---------- */
+.membrete{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px 40px;padding-block:clamp(26px,5vw,44px) 22px;border-bottom:1px solid var(--line)}
+.logo{display:flex;flex-direction:column;gap:10px;min-width:0}
+.logo-name{margin:0;font-weight:200;font-size:clamp(24px,4.6vw,46px);line-height:1.15;letter-spacing:.32em;text-transform:uppercase;text-wrap:balance;text-shadow:0 0 22px var(--glow-soft)}
+.logo-tag{font-weight:400;font-size:clamp(11px,1.5vw,14px);letter-spacing:.3em;text-transform:uppercase;color:var(--glow)}
+.datos{display:flex;flex-wrap:wrap;gap:6px 22px;margin:0;font-size:13px;font-weight:400;color:var(--muted)}
+.datos div{display:flex;gap:8px;align-items:baseline}
+.datos dt{font-size:9.5px;letter-spacing:.28em;text-transform:uppercase}
+.datos dd{margin:0;color:var(--fg);font-variant-numeric:tabular-nums}
+
+/* ---------- Título ---------- */
+.intro{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 32px}
+.intro h2{margin:0;font-weight:200;font-size:clamp(26px,4.2vw,42px);line-height:1.15;letter-spacing:.01em;text-wrap:balance;max-width:20ch}
+.intro h2 em{font-style:normal;font-weight:300;color:var(--glow)}
+.intro p{margin:0;max-width:46ch;color:var(--muted);font-size:14px}
+
+/* ---------- Visor 360 ---------- */
+.visor{position:relative;width:100%;max-width:100%;aspect-ratio:16/9;min-height:340px;border:1px solid var(--line);background:#000;overflow:hidden;box-shadow:0 30px 80px -30px rgba(127,227,214,.25);touch-action:none}
+#pano{position:absolute;inset:0}
+.visor .pnlm-container{background:#000 url("assets/preview.jpg") center/cover no-repeat;font-family:var(--f)}
+.visor .pnlm-load-box{background:rgba(7,11,11,.85);border:1px solid var(--line);border-radius:0;font-family:var(--f)}
+.visor .pnlm-lbar{border-color:var(--glow)}
+.visor .pnlm-lbar-fill{background:var(--glow)}
+.visor .pnlm-controls{border-radius:0;border-color:rgba(255,255,255,.2)}
+.visor .pnlm-orientation-button{display:none!important}
+.hint{position:absolute;left:12px;bottom:12px;z-index:5;display:flex;align-items:center;gap:10px;max-width:calc(100% - 100px);padding:8px 12px;background:rgba(7,11,11,.72);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border:1px solid var(--line);font-size:12px;font-weight:400;line-height:1.35;color:var(--fg);pointer-events:none;transition:opacity .6s}
+.hint.off{opacity:0}
+.hint svg{flex:none}
+.badge{position:absolute;right:12px;bottom:12px;z-index:5;font-size:11px;font-weight:400;letter-spacing:.28em;color:var(--glow);padding:7px 9px;border:1px solid rgba(127,227,214,.4);background:rgba(7,11,11,.6);pointer-events:none}
+.visor-pie{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 24px;margin-top:12px;font-size:12px;color:var(--muted)}
+.visor-pie button{font:inherit;font-weight:400;color:var(--glow);background:none;border:1px solid var(--line);padding:10px 16px;min-height:44px;cursor:pointer;letter-spacing:.04em}
+.visor-pie button:hover{border-color:var(--glow)}
+.visor-pie button:focus-visible{outline:2px solid var(--glow);outline-offset:2px}
+
+/* ---------- Color de las luces ---------- */
+.luces-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 24px;margin-bottom:14px}
+.luces-head h3{margin:0;font-weight:200;font-size:clamp(22px,3vw,30px);letter-spacing:.02em}
+.luces-head span{font-size:12px;color:var(--muted);font-weight:400}
+.escena{position:relative;width:100%;max-width:100%;aspect-ratio:2000/1345;background:#000;border:1px solid var(--line);overflow:hidden;box-shadow:0 30px 90px -36px var(--glow);transition:box-shadow .6s}
+.escena img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s ease}
+.escena img.on{opacity:1}
+.escena .tag{position:absolute;left:12px;top:12px;z-index:2;font-size:10px;font-weight:400;letter-spacing:.28em;text-transform:uppercase;color:var(--fg);background:rgba(7,11,11,.62);padding:6px 9px;border:1px solid rgba(255,255,255,.12)}
+.botonera{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.botonera button{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:0 16px 0 12px;font:inherit;font-size:13px;font-weight:400;letter-spacing:.06em;color:var(--fg);background:rgba(255,255,255,.02);border:1px solid var(--line);cursor:pointer;transition:border-color .3s,background .3s}
+.botonera button .dot{width:14px;height:14px;border-radius:50%;background:var(--c);box-shadow:0 0 10px var(--c);flex:none}
+.botonera button:hover{border-color:var(--c)}
+.botonera button[aria-pressed="true"]{border-color:var(--c);background:color-mix(in srgb,var(--c) 14%,transparent)}
+.botonera button:focus-visible{outline:2px solid var(--c);outline-offset:2px}
+
+/* ---------- Referente ---------- */
+.referente{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:24px clamp(24px,5vw,64px);align-items:center}
+.referente figure{margin:0;min-width:0}
+.referente img{display:block;width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;border:1px solid var(--line);box-shadow:0 24px 70px -28px rgba(80,170,255,.45)}
+.referente figcaption{margin-top:8px;font-size:11px;color:var(--muted);font-weight:400}
+.ref-texto{min-width:0;display:flex;flex-direction:column;gap:14px}
+.referente h3{margin:0;font-weight:200;font-size:clamp(34px,5vw,54px);line-height:1;letter-spacing:.32em;text-transform:uppercase}
+.referente p{margin:0;max-width:60ch;color:var(--muted)}
+.referente p strong{color:var(--fg);font-weight:500}
+.trazo{height:1px;background:linear-gradient(90deg,var(--glow),transparent);box-shadow:0 0 10px var(--glow);max-width:320px}
+
+/* ---------- Crédito Trama ---------- */
+.credito{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:22px 40px;padding-block:30px 0;border-top:1px solid var(--line)}
+.credito .quien{display:flex;flex-direction:column;gap:14px;min-width:0}
+.credito .label{color:var(--muted)}
+.credito img{width:min(260px,70vw);height:auto;opacity:.82}
+.contacto{display:flex;flex-direction:column;gap:2px;font-size:12px;font-weight:400;color:var(--muted)}
+.contacto .tel{font-size:22px;font-weight:300;color:var(--fg);letter-spacing:.08em;font-variant-numeric:tabular-nums;-webkit-user-select:all;user-select:all}
+.contacto .label{margin-bottom:4px}
+
+/* ---------- Junto a ---------- */
+.socios{display:flex;flex-direction:column;gap:18px;padding-top:28px;border-top:1px solid var(--line)}
+.socios .label{color:var(--muted)}
+.socios ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:16px}
+.socio{display:flex;flex-direction:row;align-items:center;gap:18px;min-width:0;padding:18px 24px 18px 18px;border:1px solid var(--line);color:inherit;text-decoration:none;height:100%}
+a.socio:hover{border-color:var(--glow)}
+a.socio:focus-visible{outline:2px solid var(--glow);outline-offset:2px}
+.socio .logo-box{height:56px;display:flex;align-items:center}
+.socio img{max-height:56px;width:auto;max-width:100%;opacity:.86}
+.socio .nombre{font-size:13px;font-weight:400;color:var(--fg);line-height:1.35}
+.socio .extra{font-size:12px;color:var(--muted)}
+a.socio .extra{color:var(--glow)}
+
+/* ---------- Celular ---------- */
+@media (max-width:720px){
+  body{font-size:14.5px}
+  .membrete{flex-direction:column;align-items:flex-start;gap:16px}
+  .datos{flex-direction:column;gap:4px}
+  .intro{gap:10px}
+  .visor-wrap{margin-inline:calc(-1 * var(--gutter))}
+  .visor{aspect-ratio:auto;height:72svh;min-height:420px;max-height:760px;border-inline:0}
+  .visor-pie{padding-inline:var(--gutter)}
+  .visor-pie button{flex:1 1 100%}
+  .referente{grid-template-columns:minmax(0,1fr)}
+  .luces-wrap{margin-inline:calc(-1 * var(--gutter))}
+  .luces-head,.botonera{padding-inline:var(--gutter)}
+  .escena{border-inline:0}
+  .botonera{display:grid;grid-template-columns:repeat(auto-fit,minmax(104px,1fr))}
+  .socio{flex-direction:row;align-items:center;gap:16px;padding:16px}
+  .socio .logo-box{height:44px;flex:none}
+  .socio img{max-height:44px}
+  .socio .extra{margin-top:2px}
+  .referente figure{max-width:420px}
+  .credito{flex-direction:column;align-items:flex-start}
+}
+@media (prefers-reduced-motion:reduce){.hint,.escena img,.escena{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="membrete">
+    <div class="logo" aria-label="María Sol Pomphile, Women Lighting">
+      <h1 class="logo-name">María Sol Pomphile</h1>
+      <span class="logo-tag">Women Lighting</span>
+    </div>
+    <dl class="datos">
+      <div><dt>Arq.</dt><dd>María Sol Pomphile</dd></div>
+      <div><dt>Perfil</dt><dd>Lighting Woman</dd></div>
+      <div><dt>Tel.</dt><dd>2234569365</dd></div>
+    </dl>
+  </header>
+
+  <section class="intro" aria-labelledby="titulo">
+    <h2 id="titulo">Propuesta de iluminación <em>pista de skate</em></h2>
+    <p>Recorrido 360° de la nave. Parrillas con trazos de neón LED sobre el bowl, líneas de luz en los muros y zócalo iluminado en todo el perímetro.</p>
+  </section>
+
+  <section aria-label="Vista 360">
+    <div class="visor-wrap">
+      <div class="visor">
+        <div id="pano"></div>
+        <div class="hint" id="hint">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 12c0-2.2 4-4 9-4s9 1.8 9 4-4 4-9 4"/><path d="M9 13l3 3-3 3"/></svg>
+          <span id="hint-txt">Arrastrá para girar · rueda para acercar</span>
+        </div>
+        <div class="badge" aria-hidden="true">360°</div>
+      </div>
+      <div class="visor-pie">
+        <span>Vista orbitable en todas las direcciones</span>
+        <button type="button" id="girar" aria-pressed="true">Pausar giro</button>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="luces-titulo">
+    <div class="luces-wrap">
+      <div class="luces-head">
+        <h3 id="luces-titulo">Color de las luces</h3>
+        <span>Elegí un color para ver la nave con esa escena de iluminación</span>
+      </div>
+      <div class="escena" id="escena">
+        <img class="on" data-color="turquesa" src="assets/luz-turquesa-1000.jpg" srcset="assets/luz-turquesa-1000.jpg 1000w, assets/luz-turquesa.jpg 2000w" sizes="(max-width:720px) 100vw, 1180px" width="2000" height="1345" alt="Bowl con las luces en turquesa" decoding="async">
+        <img class="" data-color="calido" src="assets/luz-calido-1000.jpg" srcset="assets/luz-calido-1000.jpg 1000w, assets/luz-calido.jpg 2000w" sizes="(max-width:720px) 100vw, 1180px" width="2000" height="1345" alt="Bowl con las luces en cálido" aria-hidden="true" decoding="async">
+        <img class="" data-color="rojo" src="assets/luz-rojo-1000.jpg" srcset="assets/luz-rojo-1000.jpg 1000w, assets/luz-rojo.jpg 2000w" sizes="(max-width:720px) 100vw, 1180px" width="2000" height="1345" alt="Bowl con las luces en rojo" aria-hidden="true" decoding="async">
+        <img class="" data-color="violeta" src="assets/luz-violeta-1000.jpg" srcset="assets/luz-violeta-1000.jpg 1000w, assets/luz-violeta.jpg 2000w" sizes="(max-width:720px) 100vw, 1180px" width="2000" height="1345" alt="Bowl con las luces en violeta" aria-hidden="true" decoding="async">
+        <img class="" data-color="azul" src="assets/luz-azul-1000.jpg" srcset="assets/luz-azul-1000.jpg 1000w, assets/luz-azul.jpg 2000w" sizes="(max-width:720px) 100vw, 1180px" width="2000" height="1345" alt="Bowl con las luces en azul" aria-hidden="true" decoding="async">
+        <span class="tag" id="escena-tag" aria-live="polite">Turquesa</span>
+      </div>
+      <div class="botonera" id="botonera" role="group" aria-label="Color de las luces">
+        <button type="button" data-color="turquesa" style="--c:#7fe3d6" aria-pressed="true"><span class="dot" aria-hidden="true"></span>Turquesa</button>
+        <button type="button" data-color="calido" style="--c:#f2c27c" aria-pressed="false"><span class="dot" aria-hidden="true"></span>Cálido</button>
+        <button type="button" data-color="rojo" style="--c:#ff7d72" aria-pressed="false"><span class="dot" aria-hidden="true"></span>Rojo</button>
+        <button type="button" data-color="violeta" style="--c:#e27ee6" aria-pressed="false"><span class="dot" aria-hidden="true"></span>Violeta</button>
+        <button type="button" data-color="azul" style="--c:#7fa8ff" aria-pressed="false"><span class="dot" aria-hidden="true"></span>Azul</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="referente" aria-labelledby="ref-titulo">
+    <figure>
+      <img src="assets/tron.jpg" alt="Afiche de la película Tron" width="900" height="1200" loading="lazy">
+      <figcaption>Tron (1982), Walt Disney Productions. Imagen de referencia.</figcaption>
+    </figure>
+    <div class="ref-texto">
+      <span class="label">Referente</span>
+      <h3 id="ref-titulo">Tron</h3>
+      <p>El referente se tomó de la película <strong>Tron</strong>, la favorita de la infancia del comitente. De ahí sale la idea central: trazos continuos de luz sobre un espacio a oscuras, que dibujan recorridos en lugar de iluminar superficies.</p>
+      <p>Las líneas de neón corren por las parrillas siguiendo las curvas de la pista, bajan por los muros y cierran en un zócalo de luz turquesa, como las estelas de las motos de luz sobre la grilla.</p>
+      <div class="trazo" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <footer class="credito">
+    <div class="quien">
+      <span class="label">Visualización</span>
+      <img src="assets/trama-logo.png" alt="Trama Estudio de Arquitectura" width="260" height="56">
+    </div>
+    <div class="contacto">
+      <span class="label">Contacto</span>
+      <span class="tel">2284371204</span>
+      <span>Trama Estudio · Octubre 2026</span>
+    </div>
+  </footer>
+
+  <section class="socios" aria-labelledby="socios-titulo">
+    <span class="label" id="socios-titulo">Junto a</span>
+    <ul>
+      <li><a class="socio" href="https://www.instagram.com/kparquitectura/" target="_blank" rel="noopener">
+        <span class="logo-box"><img src="assets/logo-kp.png" alt="Logo de Kahl Pigueiras Arquitectura" width="56" height="56"></span>
+        <span><span class="nombre">Kahl Pigueiras Arquitectura</span><br><span class="extra">@kparquitectura</span></span>
+      </a></li>
+    </ul>
+  </section>
+
+</div>
+
+<script>
+(function(){
+  var imgs = Array.prototype.slice.call(document.querySelectorAll('#escena img'));
+  var btns = Array.prototype.slice.call(document.querySelectorAll('#botonera button'));
+  var tag = document.getElementById('escena-tag');
+  var root = document.documentElement;
+  function elegir(k){
+    imgs.forEach(function(im){ var on = im.getAttribute('data-color') === k; im.classList.toggle('on', on); if (on) im.removeAttribute('aria-hidden'); else im.setAttribute('aria-hidden','true'); });
+    btns.forEach(function(b){
+      var on = b.getAttribute('data-color') === k;
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+      if (on){
+        var c = b.style.getPropertyValue('--c');
+        root.style.setProperty('--glow', c);
+        root.style.setProperty('--glow-soft', 'color-mix(in srgb,' + c + ' 16%, transparent)');
+        tag.textContent = b.textContent.trim();
+      }
+    });
+  }
+  btns.forEach(function(b){ b.addEventListener('click', function(){ elegir(b.getAttribute('data-color')); }); });
+})();
+</script>
+
+<script src="assets/pannellum.js"></script>
+<script>
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var touch = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
+  var VEL = -1.6;
+  var hint = document.getElementById('hint');
+  var btn = document.getElementById('girar');
+  var girando = !reduce;
+  if (touch) document.getElementById('hint-txt').textContent = 'Deslizá para girar · pellizcá para acercar';
+
+  // Imagen liviana en celulares o placas que no soportan texturas de 8000 px
+  var maxTex = 4096;
+  try { var gl = document.createElement('canvas').getContext('webgl'); if (gl) maxTex = gl.getParameter(gl.MAX_TEXTURE_SIZE); } catch(e){}
+  var chica = touch || window.innerWidth < 900 || maxTex < 8192;
+
+  function syncBtn(){ btn.textContent = girando ? 'Pausar giro' : 'Girar sola'; btn.setAttribute('aria-pressed', girando ? 'true' : 'false'); }
+  syncBtn();
+  if (typeof pannellum === 'undefined') { document.getElementById('hint-txt').textContent = 'No se pudo cargar el visor 360.'; return; }
+
+  var v = pannellum.viewer('pano', {
+    type: 'equirectangular',
+    panorama: chica ? 'assets/panorama-4k.jpg' : 'assets/panorama.jpg',
+    autoLoad: true,
+    showControls: true,
+    showZoomCtrl: !touch,
+    showFullscreenCtrl: !touch,
+    orientationOnByDefault: false,
+    compass: false,
+    yaw: 0, pitch: 12,
+    hfov: touch ? 95 : 105,
+    minHfov: 40, maxHfov: 120,
+    autoRotate: girando ? VEL : 0,
+    strings: { loadingLabel: 'Cargando vista 360…', bylineLabel: '' }
+  });
+  function ocultar(){ hint.classList.add('off'); }
+  ['mousedown','touchstart','wheel'].forEach(function(ev){ document.getElementById('pano').addEventListener(ev, ocultar, {passive:true, once:true}); });
+  btn.addEventListener('click', function(){
+    girando = !girando;
+    if (girando) { v.startAutoRotate(VEL); } else { v.stopAutoRotate(); }
+    syncBtn();
+  });
+})();
+</script>
+</body>
+</html>
